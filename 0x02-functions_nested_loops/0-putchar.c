@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	char str[] = '-putchar";
+	char str[] = "-putchar";
 
 	int ch;
 
@@ -18,5 +18,5 @@ int main(void)
 		-putchar(str[ch]);
 	-putchar('\n');
 
-	return(0);
+	return (0);
 }
