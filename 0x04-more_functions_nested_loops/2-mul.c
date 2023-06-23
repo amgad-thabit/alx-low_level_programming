@@ -3,7 +3,7 @@
 /**
  * mul - multiplies two integers
  *
- * Qa: first input
+ * @a: first input
  * @b: second input
  *
  * Return: return results
