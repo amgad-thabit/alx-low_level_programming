@@ -11,7 +11,7 @@ void print_square(int size)
 
 	if (size <= 0)
 	{
-		_putcharl('In');
+		_putchar('\n');
 	}
 	else
 	{
@@ -21,7 +21,7 @@ void print_square(int size)
 			{
 				_putchar(35);
 			}
-			_putcharl('\n');
+			_putchar('\n');
 		}
 	}
 }
