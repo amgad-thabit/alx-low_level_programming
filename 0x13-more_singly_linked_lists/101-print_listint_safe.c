@@ -1,55 +1,49 @@
-#include "lists.h"
 #include <stdio.h>
-
-/**
- * looped_listint_len - Counts the number of unique nodes
- * in a looped listint_t linked list.
- * @head: A pointer to the head of the listint_t to check.
- *
- * Return: If the list is not looped - 0.
- * Otherwise - the number of unique nodes in the list.
- */
 
 size_t looped_listint_len(const listint_t *head);
 size_t print_listint_safe(const listint_t *head);
 
+/**
+ * looped_listint_len - Counts the number of unique nodes
+ * in a looped listint_t linked list.
+ * @head: A pointer to the first node.
+ *
+ * Return: If the list is not looped - 0.
+ * Otherwise - the number of unique nodes in the list.
+ */
 size_t looped_listint_len(const listint_t *head)
 {
-	const listint_t *first, *hero;
-	size_t nodes = 1;
+	const listint_t *tor, *body;
+	size_t deep = 1;
 
-	if (hero == NULL || head->next == NULL)
+	if (head == NULL || head->next == NULL)
 		return (0);
+	tor = head->next;
+	body = (head->next)->next;
 
-	first = head->next;
-	hero = (head->next)->next;
-
-	while (hero)
+	while (body)
 	{
-		if (first == hero)
+		if (tor == body)
 		{
-			first = head;
-			while (first != hero)
+			tor = head;
+			while (tor != body)
 			{
-				nodes++;
-				first = first->next;
-				hero = hare->next;
+				deep++;
+				tor = tor->next;
+				body = body->next;
+			}
+			tor = tor->next;
+			while (tor != body)
+			{
+				deep++;
+				tor = tor->next;
 			}
 
-			first = first->next;
-			while (first != hero)
-			{
-				nodes++;
-				first = first->next;
-			}
-
-			return (nodes);
+			return (deep);
 		}
-
-		first = first->next;
-		hero = (hare->next)->next;
+		tor = tor->next;
+		body = (body->next)->next;
 	}
-
 	return (0);
 }
 
@@ -61,30 +55,25 @@ size_t looped_listint_len(const listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nodes, index = 0;
+	size_t deep, idx = 0;
 
-	nodes = looped_listint_len(head);
-
-	if (nodes == 0)
+	deep = looped_listint_len(head);
+	if (deep == 0)
 	{
-		for (; head != NULL; nodes++)
+		for (; head != NULL; deep++)
 		{
 			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
 		}
 	}
-
 	else
 	{
-		for (index = 0; index < nodes; index++)
+		for (idx = 0; idx < deep; idx++)
 		{
 			printf("[%p] %d\n", (void *)head, head->n);
 			head = head->next;
 		}
-
 		printf("-> [%p] %d\n", (void *)head, head->n);
 	}
-
-	return (nodes);
+	return (deep);
 }
-
