@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * get_endianness - returns the endianness of the system
+ * get_endianness - checks if a machine is little or big endian
  *
- * Retuen: 0 if big, 1 if small
+ * Return: 0 if big endian, 1 if small
  */
 int get_endianness(void)
 {
