@@ -8,13 +8,13 @@
  */
 int _strlen(char *s)
 {
-        int f = 0;
+	int f = 0;
 
-        if (!s)
-                return (0);
-        while (*s++)
-                f++;
-        return (f);
+	if (!s)
+		return (0);
+	while (*s++)
+		f++;
+	return (f);
 }
 
 /**
@@ -27,8 +27,7 @@ int _strlen(char *s)
 int create_file(const char *filename, char *text_content)
 {
 	int name;
-	ssize_t bytes = 0;
-	ssize_t len = _strlen(text_content);
+	ssize_t bytes = 0, len = _strlen(text_content);
 
 	if (!filename)
 		return (-1);
