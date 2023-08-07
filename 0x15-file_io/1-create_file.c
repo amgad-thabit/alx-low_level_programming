@@ -27,12 +27,13 @@ int _strlen(char *s)
 int create_file(const char *filename, char *text_content)
 {
 	int name;
-	ssize_t bytes = 0, len = _strlen(text_content);
+	ssize_t bytes = 0;
+	ssize_t len = _strlen(text_content);
 
 	if (!filename)
 		return (-1);
 	if (len)
-		bytes = write(name, text_content. len);
+		bytes = write(name, text_content, len);
 	close(name);
 	return (bytes == len ? 1 : -1);
 }
